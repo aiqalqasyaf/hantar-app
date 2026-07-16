@@ -27,7 +27,7 @@ defineProps<{ analyses: SkillAnalysis[] }>();
 
         <div class="space-y-2">
             <Link v-for="a in analyses" :key="a.id" :href="`/analysis/${a.id}`">
-                <Card class="cursor-pointer transition hover:shadow-sm">
+                <Card class="mb-3 cursor-pointer transition hover:shadow-sm">
                     <CardContent class="flex items-center justify-between py-4">
                         <div>
                             <p class="text-sm font-medium">

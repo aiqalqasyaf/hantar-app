@@ -1,5 +1,5 @@
-import { router } from '@inertiajs/vue3';
-import { reactive } from 'vue';
+import { router, usePage } from '@inertiajs/vue3';
+import { reactive, computed } from 'vue';
 
 export interface Application {
     id: number;
@@ -47,6 +47,10 @@ export function useApplications() {
         form.notes = app.notes ?? '';
     }
 
+    const errors = computed(
+        () => (usePage().props.errors ?? {}) as Record<string, string>,
+    );
+
     function submit(onSuccess: () => void) {
         const payload = { ...form };
 
@@ -75,5 +79,13 @@ export function useApplications() {
         router.delete(`/applications/${id}`, { preserveScroll: true });
     }
 
-    return { form, resetForm, editApplication, submit, updateStatus, destroy };
+    return {
+        form,
+        resetForm,
+        editApplication,
+        submit,
+        updateStatus,
+        destroy,
+        errors,
+    };
 }

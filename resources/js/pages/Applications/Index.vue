@@ -26,7 +26,8 @@ import type { Application } from '@/composables/useApplications';
 
 const props = defineProps<{ applications: Application[] }>();
 
-const { form, resetForm, editApplication, submit, destroy } = useApplications();
+const { form, resetForm, editApplication, submit, destroy, errors } =
+    useApplications();
 
 const dialogOpen = ref(false);
 
@@ -155,6 +156,9 @@ function handleDelete(id: number) {
                         v-model="form.company"
                         placeholder="Acme Inc."
                     />
+                    <p v-if="errors.company" class="text-xs text-destructive">
+                        {{ errors.company }}
+                    </p>
                 </div>
 
                 <div class="space-y-2">
@@ -164,6 +168,9 @@ function handleDelete(id: number) {
                         v-model="form.role"
                         placeholder="Software Developer"
                     />
+                    <p v-if="errors.role" class="text-xs text-destructive">
+                        {{ errors.role }}
+                    </p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-0">
@@ -184,6 +191,9 @@ function handleDelete(id: number) {
                             </SelectContent>
                         </Select>
                     </div>
+                    <p v-if="errors.status" class="text-xs text-destructive">
+                        {{ errors.status }}
+                    </p>
 
                     <div class="space-y-2">
                         <Label for="applied_at">Date Applied</Label>
@@ -192,6 +202,12 @@ function handleDelete(id: number) {
                             v-model="form.applied_at"
                             type="date"
                         />
+                        <p
+                            v-if="errors.applied_at"
+                            class="text-xs text-destructive"
+                        >
+                            {{ errors.applied_at }}
+                        </p>
                     </div>
                 </div>
 
@@ -202,6 +218,9 @@ function handleDelete(id: number) {
                         v-model="form.job_url"
                         placeholder="https://..."
                     />
+                    <p v-if="errors.job_url" class="text-xs text-destructive">
+                        {{ errors.job_url }}
+                    </p>
                 </div>
 
                 <div class="space-y-2">
@@ -212,6 +231,12 @@ function handleDelete(id: number) {
                         placeholder="Paste job description here"
                         class="h-32 resize-none overflow-y-auto"
                     />
+                    <p
+                        v-if="errors.job_description"
+                        class="text-xs text-destructive"
+                    >
+                        {{ errors.job_description }}
+                    </p>
                 </div>
 
                 <div class="space-y-2">
@@ -223,6 +248,9 @@ function handleDelete(id: number) {
                         class="h-24 resize-none overflow-y-auto"
                     />
                 </div>
+                <p v-if="errors.notes" class="text-xs text-destructive">
+                    {{ errors.notes }}
+                </p>
             </div>
 
             <DialogFooter>
