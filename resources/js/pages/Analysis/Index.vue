@@ -116,6 +116,7 @@ function runAnalysis() {
                 @change="applyFilters"
                 class="w-37.5"
             />
+            <span class="text-sm">to</span>
             <Input
                 type="date"
                 v-model="toFilter"
