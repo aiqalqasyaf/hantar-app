@@ -3,13 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AnalysisController;
+use App\Http\Controllers\DashboardController;
 
 Route::inertia('/', 'Welcome')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications.index')->middleware('auth');
     
-    Route::inertia('dashboard', 'Dashboard')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('applications', ApplicationController::class)
     ->except(['create', 'edit', 'show']);
 
