@@ -81,7 +81,7 @@ function runAnalysis() {
 
 <template>
     <Head title="Analysis" />
-    <div class="space-y-6 p-6">
+    <div class="space-y-2 p-6">
         <div class="flex items-center justify-between">
             <h1 class="text-2xl font-semibold tracking-tight">
                 Skill Gap Analysis
@@ -96,7 +96,7 @@ function runAnalysis() {
             </div>
         </div>
 
-        <div class="flex flex-wrap items-center justify-end gap-3">
+        <div class="mb-4 flex flex-wrap items-center justify-end gap-3">
             <Select v-model="statusFilter" @update:model-value="applyFilters">
                 <SelectTrigger class="w-35">
                     <SelectValue />
@@ -125,7 +125,7 @@ function runAnalysis() {
             />
         </div>
 
-        <div class="space-y-2">
+        <div class="space-y-3">
             <Card
                 v-for="app in applications"
                 :key="app.id"

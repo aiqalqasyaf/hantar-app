@@ -32,4 +32,17 @@ class UpdateApplicationRequest extends FormRequest
             'notes' => 'nullable|string',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'company.required' => 'Please enter the company name.',
+            'role.required' => 'Please enter the role you applied for.',
+            'status.required' => 'Please select a status.',
+            'status.in' => 'Please select a valid status.',
+            'applied_at.required' => 'Please select the date you applied.',
+            'applied_at.date' => 'Please enter a valid date.',
+            'job_url.url' => 'Please enter a valid URL (starting with http:// or https://).',
+        ];
+    }
 }
