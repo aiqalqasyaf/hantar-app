@@ -1,4 +1,5 @@
 {
     "provider": "php",
-    "phpVersion": "8.4"
+    "phpVersion": "8.4",
+    "phpExtensions": ["pdo_pgsql", "pgsql"]
 }
