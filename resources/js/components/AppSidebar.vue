@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { LayoutGrid, BriefcaseBusiness, Sparkles } from '@lucide/vue';
+import {
+    LayoutGrid,
+    BriefcaseBusiness,
+    Sparkles,
+    Briefcase,
+    Layers,
+} from '@lucide/vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
@@ -26,7 +32,7 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Applications',
         href: '/applications',
-        icon: BriefcaseBusiness,
+        icon: Layers,
     },
     {
         title: 'Skill Analysis',
