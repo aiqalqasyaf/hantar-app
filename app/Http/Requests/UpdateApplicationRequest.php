@@ -28,6 +28,7 @@ class UpdateApplicationRequest extends FormRequest
             'status' => 'required|in:applied,interview,offer,rejected',
             'applied_at' => 'required|date',
             'job_url' => 'nullable|url|max:255',
+            'job_description' => 'nullable|string',
             'notes' => 'nullable|string',
         ];
     }

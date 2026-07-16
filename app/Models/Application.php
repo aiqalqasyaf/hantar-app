@@ -13,7 +13,7 @@ class Application extends Model
     use HasFactory;
 
      protected $fillable = [
-        'user_id', 'company', 'role', 'status', 'applied_at', 'job_url', 'notes',
+        'user_id', 'company', 'role', 'status', 'applied_at', 'job_url', 'notes','job_description',
     ];
 
     protected $casts = [
