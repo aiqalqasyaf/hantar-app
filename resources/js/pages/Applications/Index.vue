@@ -124,14 +124,27 @@ function handleDelete(id: number) {
                                 <Badge variant="outline" class="text-xs">{{
                                     app.applied_at_formatted
                                 }}</Badge>
-                                <Button
-                                    variant="destructive"
-                                    size="sm"
-                                    class="h-6 px-2 text-xs text-destructive hover:text-destructive"
-                                    @click.stop="handleDelete(app.id)"
-                                >
-                                    Delete
-                                </Button>
+                                <div class="flex gap-2">
+                                    <Button
+                                        v-if="app.job_url"
+                                        :href="app.job_url"
+                                        as="a"
+                                        target="_blank"
+                                        variant="default"
+                                        class="h-6 px-2 text-xs"
+                                        @click.stop
+                                    >
+                                        Go to job
+                                    </Button>
+                                    <Button
+                                        variant="destructive"
+                                        size="sm"
+                                        class="h-6 px-2 text-xs text-destructive hover:text-destructive"
+                                        @click.stop="handleDelete(app.id)"
+                                    >
+                                        Delete
+                                    </Button>
+                                </div>
                             </div>
                         </CardContent>
                     </Card>
