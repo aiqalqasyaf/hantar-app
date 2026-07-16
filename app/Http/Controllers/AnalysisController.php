@@ -38,7 +38,18 @@ class AnalysisController extends Controller
             'analyses' => SkillAnalysis::with('application')
                 ->where('user_id', auth()->id())
                 ->latest()
-                ->get(),
+                ->get()
+                ->map(fn ($analysis) => [
+                    'id' => $analysis->id,
+                    'application' => $analysis->application,
+                    'score' => $analysis->score,
+                    'matched_skills' => $analysis->matched_skills,
+                    'missing_skills' => $analysis->missing_skills,
+                    'recommendations' => $analysis->recommendations,
+                    'summary' => $analysis->summary,
+                    'created_at' => $analysis->created_at?->format('Y-m-d'),
+                    'created_at_formatted' => $analysis->created_at?->format('d F Y'),
+                ]),
         ]);
     }
 
