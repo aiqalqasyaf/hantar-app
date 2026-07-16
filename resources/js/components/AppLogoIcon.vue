@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Briefcase } from '@lucide/vue';
 import type { HTMLAttributes } from 'vue';
-import { Send } from '@lucide/vue';
 
 defineOptions({
     inheritAttrs: false,
@@ -14,5 +14,5 @@ defineProps<Props>();
 </script>
 
 <template>
-    <Send />
+    <Briefcase />
 </template>
