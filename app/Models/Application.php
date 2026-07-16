@@ -25,7 +25,7 @@ class Application extends Model
     protected function appliedAtFormatted(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->applied_at?->format('d-m-Y'),
+            get: fn () => $this->applied_at?->format('d F Y'),
         );
     }
 

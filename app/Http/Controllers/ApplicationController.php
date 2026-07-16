@@ -24,7 +24,7 @@ class ApplicationController extends Controller
                 'role' => $application->role,
                 'status' => $application->status,
                 'applied_at' => $application->applied_at?->format('Y-m-d'),
-                'applied_at_formatted' => $application->applied_at?->format('d M Y'),
+                'applied_at_formatted' => $application->applied_at?->format('d F Y'),
                 'job_url' => $application->job_url,
                 'job_description' => $application->job_description,
                 'notes' => $application->notes,
