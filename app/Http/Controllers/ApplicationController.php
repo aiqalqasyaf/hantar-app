@@ -26,6 +26,7 @@ class ApplicationController extends Controller
                 'applied_at' => $application->applied_at?->format('Y-m-d'),
                 'applied_at_formatted' => $application->applied_at?->format('d M Y'),
                 'job_url' => $application->job_url,
+                'job_description' => $application->job_description,
                 'notes' => $application->notes,
             ]),
         ]);

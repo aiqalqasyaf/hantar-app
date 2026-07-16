@@ -9,6 +9,7 @@ export interface Application {
     applied_at: string;
     applied_at_formatted: string;
     job_url: string | null;
+    job_description: string | null;
     notes: string | null;
 }
 
@@ -20,6 +21,7 @@ export function useApplications() {
         status: 'applied' as Application['status'],
         applied_at: '',
         job_url: '',
+        job_description: '',
         notes: '',
     });
 
@@ -30,6 +32,7 @@ export function useApplications() {
         form.status = 'applied';
         form.applied_at = '';
         form.job_url = '';
+        form.job_description = '';
         form.notes = '';
     }
 
@@ -40,6 +43,7 @@ export function useApplications() {
         form.status = app.status;
         form.applied_at = app.applied_at;
         form.job_url = app.job_url ?? '';
+        form.job_description = app.job_description ?? '';
         form.notes = app.notes ?? '';
     }
 

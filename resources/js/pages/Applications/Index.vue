@@ -140,14 +140,14 @@ function handleDelete(id: number) {
     </div>
 
     <Dialog v-model:open="dialogOpen">
-        <DialogContent class="sm:max-w-md">
+        <DialogContent class="flex max-h-[85vh] flex-col sm:max-w-md">
             <DialogHeader>
                 <DialogTitle>{{
                     form.id ? 'Edit Application' : 'New Application'
                 }}</DialogTitle>
             </DialogHeader>
 
-            <div class="space-y-4">
+            <div class="flex-1 space-y-4 overflow-y-auto px-1">
                 <div class="space-y-2">
                     <Label for="company">Company</Label>
                     <Input
@@ -205,11 +205,22 @@ function handleDelete(id: number) {
                 </div>
 
                 <div class="space-y-2">
+                    <Label for="job_description">Job Description</Label>
+                    <Textarea
+                        id="job_description"
+                        v-model="form.job_description"
+                        placeholder="Paste job description here"
+                        class="h-32 resize-none overflow-y-auto"
+                    />
+                </div>
+
+                <div class="space-y-2">
                     <Label for="notes">Notes</Label>
                     <Textarea
                         id="notes"
                         v-model="form.notes"
                         placeholder="Any notes..."
+                        class="h-24 resize-none overflow-y-auto"
                     />
                 </div>
             </div>
