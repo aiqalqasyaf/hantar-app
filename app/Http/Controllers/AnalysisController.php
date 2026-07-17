@@ -55,6 +55,7 @@ class AnalysisController extends Controller
 
     public function show(SkillAnalysis $analysis)
     {
+        abort_unless($analysis->user_id === auth()->id(), 403);
         $analysis->load('application');
         return Inertia::render('Analysis/Show', ['analysis' => $analysis]);
     }
@@ -66,7 +67,9 @@ class AnalysisController extends Controller
             'resume_text' => 'required|string',
         ]);
 
-        $application = Application::findOrFail($request->application_id);
+        $application = Application::where('id', $request->application_id)
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
 
         $result = $service->analyze($application->job_description ?? '', $request->resume_text);
 

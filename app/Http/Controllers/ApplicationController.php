@@ -69,7 +69,8 @@ class ApplicationController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateApplicationRequest $request, Application $application)
-    {
+    {   
+        abort_unless($application->user_id === auth()->id(), 403);
         $application->update($request->validated());
         return redirect()->back();
     }
@@ -78,7 +79,8 @@ class ApplicationController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Application $application)
-    {
+    {   
+        abort_unless($application->user_id === auth()->id(), 403);
         $application->delete();
         return redirect()->back();
     }
