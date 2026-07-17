@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -163,7 +163,10 @@ function runAnalysis() {
     </div>
 
     <Dialog v-model:open="dialogOpen">
-        <DialogContent class="flex max-h-[85vh] flex-col sm:max-w-3xl">
+        <DialogContent
+            class="flex max-h-[85vh] flex-col px-3 sm:max-w-3xl"
+            @openAutoFocus="(e) => e.preventDefault()"
+        >
             <DialogHeader>
                 <DialogTitle
                     >{{ selectedApp?.company }} —

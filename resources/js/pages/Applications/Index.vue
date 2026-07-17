@@ -112,7 +112,7 @@ function handleDelete(id: number) {
                         @click="openEdit(app)"
                     >
                         <CardHeader>
-                            <CardTitle class="text-lg font-semibold">{{
+                            <CardTitle class="text-md font-semibold">{{
                                 app.company
                             }}</CardTitle>
                         </CardHeader>
@@ -154,7 +154,10 @@ function handleDelete(id: number) {
     </div>
 
     <Dialog v-model:open="dialogOpen">
-        <DialogContent class="flex max-h-[85vh] flex-col sm:max-w-md">
+        <DialogContent
+            class="flex max-h-[85vh] flex-col sm:max-w-md"
+            @openAutoFocus="(e) => e.preventDefault()"
+        >
             <DialogHeader>
                 <DialogTitle>{{
                     form.id ? 'Edit Application' : 'New Application'
